@@ -1,0 +1,46 @@
+header{
+    font-size: 0.45rem;
+    color: white;
+    text-align: center;
+    background-color: orange;
+    padding: .2rem;
+}
+header a{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    padding-right: .2rem;
+    line-height: 1rem;
+}
+.login .main{
+    padding: 1.6rem 0.4rem .2rem .4rem;
+    font-size: 0.4rem;
+}
+.login .main .input{
+    border-bottom: 1px solid   #999999;
+    padding: 0.6rem 0;
+
+}
+.login .main input{
+    border: none;
+    font-size: 0.4rem;
+}
+.login .main  span{
+    float: right;
+    padding: .5rem 0;
+    color: #666666;
+}
+.login .main  button{
+    /* margin-top: .4rem; */
+    width: 100%;
+    border-radius: .4rem;
+    padding: .2rem;
+    border: none;
+    background-color: orange;
+    color: white;
+    font-size: .4rem;
+}
+.login .main  button:focus{
+    outline: none;
+}

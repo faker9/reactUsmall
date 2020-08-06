@@ -1,0 +1,43 @@
+header{
+    font-size: 0.45rem;
+    color: white;
+    text-align: center;
+    background-color: orange;
+    padding: .2rem;
+}
+header a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: .4rem;
+    padding-left: .2rem;
+    line-height: 1rem;
+}
+.reg .main{
+    padding: 1.6rem 0.4rem .2rem .4rem;
+    font-size: 0.4rem;
+}
+.reg .main .input{
+    border-bottom: 1px solid   #999999;
+    padding: 0.6rem 0;
+
+}
+.reg .main input{
+    border: none;
+    font-size: 0.4rem;
+}
+
+.reg .main  button{
+    margin-top: .5rem;
+    width: 100%;
+    border-radius: .4rem;
+    padding: .2rem;
+    border: none;
+    background-color: orange;
+    color: white;
+    font-size: .4rem;
+}
+.reg .main  button:focus{
+    outline: none;
+}
