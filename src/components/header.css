@@ -1,0 +1,14 @@
+header{
+    font-size: 0.45rem;
+    color: white;
+    text-align: center;
+    background-color: orange;
+    padding: .2rem;
+}
+header span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: .2rem;
+}

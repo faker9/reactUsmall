@@ -1,0 +1,31 @@
+.goods{
+    display: flex;
+    height: 2.2rem;
+    margin: .3rem 0;
+}
+.goods img{
+    width: 2.2rem;
+    margin-left: .2rem;
+    border-radius: .4rem;
+}
+.goods .right{
+    margin-left: .4rem;
+}
+.goods .right h3{
+    color: #333;
+    font-size: .35rem;
+    font-weight: normal;
+    margin: .1rem 0 .2rem;
+}
+.goods .right p{
+    color: rgb(192, 41, 41);
+    font-size: .35rem;
+    margin: .5rem 0 .3rem 0;
+}
+.goods .right span{
+    margin-top: .3rem;
+    color: white;
+    padding: .2rem;
+    border-radius: .2rem;
+    background-color: orange;
+}

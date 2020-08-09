@@ -4,7 +4,7 @@
     justify-content: space-around;
     left: 0;
     bottom: 0;
-    font-size: 0.2rem;
+    font-size: 0.3rem;
     height: 0.9rem;
     padding-top: 0.15rem;
     width: 100vw;
@@ -12,7 +12,7 @@
     box-sizing: border-box;
 }
 body{
-    background: #f1f1f1;
+    background: #FAFAFA;
 }
 .index footer a{
     display: block;
@@ -20,9 +20,10 @@ body{
 }
 .index footer img{
     display: block;
-    width: 0.3rem;
-    height: 0.3rem;
+    width: 0.35rem;
+    height: 0.35rem;
     margin: 0 auto;
+    padding-bottom: .05rem;
 }
 .index footer .select{
     color: orange;

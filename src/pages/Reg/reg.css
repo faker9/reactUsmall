@@ -5,7 +5,7 @@ header{
     background-color: orange;
     padding: .2rem;
 }
-header a{
+header span{
     position: absolute;
     top: 0;
     left: 0;

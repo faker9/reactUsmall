@@ -1,0 +1,17 @@
+.cate{
+    display: flex;
+}
+.cate ul{
+    width: 2rem;
+}
+.cate ul li{
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    border-left:.05rem solid #f1f1f1;
+}
+.cate .select{
+    color: orange;
+    border-left: .05rem solid blue;
+    background-color: white;
+}

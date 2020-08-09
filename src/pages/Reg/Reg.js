@@ -22,14 +22,19 @@ export default class Reg extends Component {
     }
     reg(){
         requestMemberReg(this.state.user).then(res=>{
-            // if(res.data.code== 200){}
+            if(res.data.code=== 200){
+                this.props.history.push('/login')
+            }
+            else{
+                alert(res.data.msg)
+            }
         })
     }
     render() {
         const { user } = this.state
         return (
             <div className='reg'>
-                <header>注册<a >返回</a></header>
+                <header>注册<span >返回</span></header>
                 <div className="main">
                     <div className='input'>
                         手机号:<input type="text" value={user.phone} onChange={(e) => this.changeUser(e, 'phone')} />

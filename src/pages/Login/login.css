@@ -5,13 +5,14 @@ header{
     background-color: orange;
     padding: .2rem;
 }
-header a{
-    position: absolute;
+header span{
+    /* position: absolute;
     top: 0;
-    right: 0;
+    right: 0; */
+    float: right;
     color: white;
     padding-right: .2rem;
-    line-height: 1rem;
+    line-height: .6rem;
 }
 .login .main{
     padding: 1.6rem 0.4rem .2rem .4rem;

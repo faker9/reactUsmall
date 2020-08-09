@@ -1,0 +1,12 @@
+.rush{
+    display: flex;
+    justify-content: space-between;
+}
+.rush div{
+    /* width: 1rem; */
+    flex: 1;
+    text-align: center;
+}
+.rush img{
+    width: 100%;
+}

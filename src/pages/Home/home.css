@@ -1,0 +1,23 @@
+.home header{
+    height: 1rem;
+    background-color: white;
+}
+.home header img{
+    display: inline-block;
+    margin-top: .2rem;
+    width: 2.4rem;
+    margin-left: .2rem;
+}
+
+.home header input{
+    border: none;
+    font-size: 0.3rem;
+    width: 2rem;
+    height: .25rem;
+    border-radius: .4rem;
+    background-color: #f1f1f1;
+    vertical-align: .1rem;
+    padding: .2rem;
+    text-align: center;
+    margin-left: .5rem;
+}
