@@ -1,77 +1,181 @@
 import React, { Component } from 'react'
 import Header from '../../components/Header'
 import carStore from '../../assets/img/store.png'
-import { Checkbox } from 'antd-mobile'
+// import { Checkbox } from 'antd-mobile'
 import './shopCar.css'
 import { priceFilter } from '../../filters'
 import edit from '../../assets/img/editor_nor.png'
 import editer from '../../assets/img/editor_hig.png'
 import sel from '../../assets/img/radio_nor.png'
 import select from '../../assets/img/radio_hig.png'
-export default class ShopCar extends Component {
+import emptycar from '../../assets/img/tab_shopping_nor.png'
+import { requestShopListAction, shopList,isSelectAll,changeIsSelectAll,changeCheckedOne,changeIsEdit, isEdit, requestShopDelAction, requestShopEditAddAction } from '../../store'
+import { connect } from 'react-redux'
+import {  requestShopEdit } from '../../utils/request'
+class ShopCar extends Component {
     constructor() {
         super()
         this.state = {
-            selAll:false,
-            isEdit:false,
-            num: 1
+            num: 1,
         }
     }
+    // 选择
+    /* sel(i) {
+        if (this.state.arr.length === 0) {
+            var arr2 = []
+            for (let i = 0; i < this.props.shopList.length; i++) {
+                arr2[i] = false
+            }
+        }
+        else {
+            arr2 = [...this.state.arr]
+        }
 
-    sel() {
-        this.setState({
-            ...this.state,
-            selAll:!this.state.selAll
+        arr2[i] = !arr2[i]
+        console.log(arr2)
+        arr2[i] = !this.state.arr[i]
+        if (arr2.some(item => { return item === false })) {
+            this.setState({
+                ...this.state,
+                selAll: false,
+                arr: arr2
+            })
+            return
+        }
+        else {
+            this.setState({
+                ...this.state,
+                selAll: true,
+                arr: arr2
+            })
+        }
+
+    } */
+
+    //删除
+    del(id){
+        this.props.shopDell(id)
+        this.requestList()
+    }
+    // 购物车数量减一
+    sub(id, num) {
+        if (num <2) {
+           return
+        }
+        let params = {
+            id: id,
+            type: 1
+        }
+        requestShopEdit(params).then(res => {
+            this.requestList()
         })
     }
-    edit(){
+ /*    add(id) {
+        let params = {
+            id: id,
+            type: 2
+        }
+        requestShopEdit(params).then(res => {
+            this.requestList()
+        })
+    } */
+
+    changebox(e) {
+
+    }
+   
+    //请求购物车列表
+    requestList() {
+        let uid = { uid: sessionStorage.getItem('uid') }
+        this.props.requestShopList(uid)
+    }
+
+    //加载完成
+    componentDidMount() {
+        this.requestList()
         this.setState({
-            ...this.state,
-            isEdit:!this.state.isEdit
+            arr: this.props.shopList.map((item) => {
+                return false
+            })
         })
     }
     render() {
-        const CheckboxItem = Checkbox.CheckboxItem;
-        const { selAll,isEdit} = this.state
+        const { shopList,changeIsSelectAll,isSelectAll,changeCheckedOne ,changeIsEdit,isEdit,shopAdd} = this.props
+        let uid = { uid: sessionStorage.getItem('uid') }
+        var total = 0
+        shopList.forEach((item)=>{
+            if(item.checked){
+                total+=item.num*item.price
+            }
+        })
         return (
-            <div>
+            <div className='cars'>
                 <Header title='购物车'></Header>
-                <div className="car">
-                    <h3><img src={carStore} alt="" />杭州报税区仓</h3>
-                    <div className="con">
-                        <CheckboxItem></CheckboxItem>
-                        <img className='pic' src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1091405991,859863778&fm=26&gp=0.jpg" alt="" />
-                        <div className="cal">
-                            <h4>哆啦咪女装</h4>
-                            <div className="addsub">
-                                <button>-</button><span><button>123</button></span><button>+</button>
+                {shopList.length>0 ? <div>{shopList.map((item, index) => {
+                    return <div className="car" key={item.id}>
+                        <h3><img src={carStore} alt="" />杭州报税区仓</h3>
+                        <div className={isEdit?'con remove':'con'} >
+                            <div className="conmain">
+                                <div className="imgce" > <img src={item.checked ? select : sel} alt="" onClick={() => changeCheckedOne(index)} /></div>
+
+                                <img className='pic' src={item.img} alt="" />
+                                <div className="cal">
+                                    <h4>{item.goodsname}</h4>
+                                    {/* 计算器 */}
+                                    <div className="addsub">
+                                        <button onClick={() => this.sub(item.id, item.num)}>-</button>
+                                        <span><button>{item.num}</button></span>
+                                        <button onClick={() => shopAdd(item.id,uid)}>+</button>
+                                    </div>
+                                    <p>总价:{priceFilter(item.price * item.num)}</p>
+                                </div>
+                                <p className='price'>$ {priceFilter(item.price)}</p>
                             </div>
-                            <p>总价:{priceFilter(388)}</p>
+                            <button className='del' onClick={()=>this.del(item.id)}>删除</button>
                         </div>
-                        <p className='price'>$ {priceFilter(368)}</p>
-                        <button className='del'>删除</button>
-                    </div>
-                </div>
-
-                <div className="tettle">
-                    <div className="selAll">
-                        <img src={selAll?select:sel} alt="" onClick={() => this.sel()} />
-                        全选
-                    </div>
-                    <div className="edit">
-                        <img src={isEdit?editer:edit} alt="" onClick={()=>this.edit()}/>
-                        编辑
-                    </div>
-                    <div className="count">
-                        合计:232
-                        <p>(不含运费)</p>
-                    </div>
-                    <span >去结算</span>
-                </div>
-
+                        <div className="tettle">
+                            <div className="selAll">
+                                <img src={isSelectAll ? select : sel} alt="" onClick={() => changeIsSelectAll()} />
+                全选
             </div>
+                            <div className="edit">
+                                <img src={isEdit ? editer : edit} alt="" onClick={() => changeIsEdit()} />
+                编辑
+            </div>
+                            <div className="count">
+                                合计:{priceFilter(total)}
+                <p>(不含运费)</p>
+                            </div>
+                            <span >去结算</span>
+                        </div>
+                    </div>
+                })}</div> : <div className="empty">
+                        <img src={emptycar} alt="" />
+                        <p>购物车还是空的</p>
+                        <p>快去逛逛吧~</p>
 
+                    </div>}
+            </div>
 
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        shopList: shopList(state),
+        isSelectAll:isSelectAll(state),
+        isEdit:isEdit(state)
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        requestShopList: (id) => dispatch(requestShopListAction(id)),
+        changeIsSelectAll:()=>dispatch(changeIsSelectAll()),
+        changeCheckedOne:index=>dispatch(changeCheckedOne(index)),
+        changeIsEdit:()=>dispatch(changeIsEdit()),
+        shopDell:(id)=>dispatch(requestShopDelAction(id)),
+        shopAdd:(id,uid)=>dispatch(requestShopEditAddAction(id,uid))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ShopCar)

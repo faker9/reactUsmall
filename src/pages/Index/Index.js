@@ -22,12 +22,11 @@ export default class index extends Component {
         }
     }
     change(index){
-        this.state.icon=[home1,cate1,shopCar1,mine1]
+       /*  this.state.icon=[home1,cate1,shopCar1,mine1]
         this.state.icon[index]= this.state.icon2[index]
-        this.setState({   
-           icon: this.state.icon,
-           icon2:this.state.icon2
-        })
+        this.setState({ 
+           ...this.state
+        }) */
     }
     render() {
         const {icon}= this.state

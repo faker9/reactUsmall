@@ -18,14 +18,18 @@ header span{
     padding: 1.6rem 0.4rem .2rem .4rem;
     font-size: 0.4rem;
 }
-.login .main .input{
+.login .main .input,.input1{
     border-bottom: 1px solid   #999999;
     padding: 0.6rem 0;
-
+    background-color: #fafafa;
 }
 .login .main input{
     border: none;
     font-size: 0.4rem;
+    background-color: #fafafa;
+}
+body{
+    background-color: #fafafa;
 }
 .login .main  span{
     float: right;

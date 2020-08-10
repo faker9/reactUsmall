@@ -9,19 +9,20 @@ import './catedetail.css'
 class CateDetail extends Component {
     componentDidMount() {
         const id = QueryString.parse(this.props.location.search.slice(1))
-        console.log(id)
         this.props.requestCateDetail(id)
+    }
+    toDetail(id){
+        this.props.history.push('/goodDetail?id='+id)
     }
     render() {
         const {cateDetail } =this.props
-        console.log(this.props.cateDetail)
         return (
            <div>
                 <Header isShow={true} title='电视'></Header>
                 <div className="catedetail">
                     <div className="img"></div>
-                    {cateDetail.map(item=>{
-                        return (<div className='goods' key={item.id} >
+                    {cateDetail?cateDetail.map(item=>{
+                        return (<div className='goods' key={item.id} onClick={()=>this.toDetail(item.id)}>
                         <img src={item.img} alt="" />
                         <div className="right">
                             <h3>{item.goodsname}</h3>
@@ -29,7 +30,7 @@ class CateDetail extends Component {
                             <span>立即抢购</span>
                         </div>
                     </div>)
-                    })}
+                    }):null}
                     
                 </div>
             </div> 

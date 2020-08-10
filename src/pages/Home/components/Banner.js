@@ -20,7 +20,7 @@ export default class banner extends Component {
             <div className='banner'> 
              <Carousel>
                 {banner.map(item=>{
-                    return <img src="" key={item.id} src={item.img} alt=''/>
+                    return <img  key={item.id} src={item.img} alt=''/>
                     
                 })}
              </Carousel>

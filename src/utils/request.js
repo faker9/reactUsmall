@@ -71,3 +71,29 @@ export const requestCateInfo= (params)=> axios({
     method:'get',
     params
 })
+
+//购物车列表
+export const requestShopInfo= (params)=> axios({
+    url:'/api/cartlist',
+    method:'get',
+    params
+})
+//购物车增加
+export const requestShopAdd= (params)=> axios({
+    url:'/api/cartadd',
+    method:'post',
+    data:qs.stringify(params)
+})
+
+//购物车删除
+export const requestShopDel= (params)=> axios({
+    url:'/api/cartdelete',
+    method:'post',
+    data:qs.stringify(params)
+})
+//购物车修改
+export const requestShopEdit= (params)=> axios({
+    url:'/api/cartedit',
+    method:'post',
+    data:qs.stringify(params)
+})

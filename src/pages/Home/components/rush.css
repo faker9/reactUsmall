@@ -1,5 +1,6 @@
 .rush{
     display: flex;
+
     justify-content: space-between;
 }
 .rush div{
@@ -9,4 +10,7 @@
 }
 .rush img{
     width: 100%;
+}
+.rush  p{
+    padding-top: .2rem;
 }

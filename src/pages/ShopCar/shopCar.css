@@ -1,12 +1,22 @@
-
+.cars{
+    padding-bottom: 1.9rem;
+}
 .car{
-    /* width: 120%; */
     overflow: hidden;
+}
+.remove{
+    transform: translate(-15%)
 }
 .car .con{
     display: flex;
+
     width: 120%;
     height: 2rem;
+}
+.car .conmain{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 .car h3{
     height: 1rem;
@@ -33,26 +43,43 @@
 }
 .car .addsub{
     margin: .4rem 0 .1rem 0;
+    flex: 1;
 }
 .car .addsub button{
     border: .01rem solid #999;
     background-color: #FAFAFA;
     padding: .1rem .25rem;
 }
-.car .am-list-item{
-    width: .8rem;
+.car .imgce{
+    width: .6rem;
+    /* height: .4rem; */
+
+    padding: 0 .2rem;
     background-color: #FAFAFA;
+    line-height: 1rem;
+}
+.car .imgce img{
+    display: inline-block;
+    vertical-align: -0.4rem;
+    width: .4rem;
+    height: .4rem;
+    padding: 0 .2rem;
+    /* margin-left: .4rem; */
+    background-color: #FAFAFA;
+    line-height: 1rem;
 }
 .car .price{
     margin-left: .2rem;
     line-height: 1rem;
+    
 }
 .car .del{
+    /* flex: 1; */
     margin-left: .5rem;
     background-color: orange;
     color: white;
     border: none;
-    width: 1rem;
+    width: 15%;
 }
 
 .tettle{
@@ -60,7 +87,7 @@
     position: fixed;
     height: 1rem;
     left: 0;
-    bottom: 1rem;
+    bottom: .9rem;
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -80,6 +107,7 @@
 .tettle .count{
     margin-left: .2rem;
    padding-top: .3rem;
+   flex: 1;
 }
 .tettle .count p{
     color: #999999;
@@ -91,4 +119,14 @@
     background-color: orange;
     color:white;
     margin-left: .4rem;
+}
+.empty img{
+    padding-top: 2rem;
+    margin: .5rem auto;
+}
+.empty p{
+    font-size: .4rem;
+    color: #666666;
+    text-align: center;
+    margin-bottom: .2rem;
 }

@@ -1,0 +1,101 @@
+.mine .header{
+    position: relative;
+    background-color: orange;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: .5rem;
+    height: 2.5rem;
+    padding-top: .3rem;
+}
+.mine .header .img{
+    margin:  0 .6rem 0 .4rem;
+    width: .6rem;
+    height: .6rem;
+}
+.mine .header span{
+    position: absolute;
+    top: .1rem;
+    right: .25rem;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    width: .5rem;
+    height: .5rem;
+    font-size: .3rem;
+    text-align: center;
+    line-height: .5rem;
+}
+.mine .header .user{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 1.4rem;
+    height: 1.4rem;
+    bottom: -.85rem;
+    border-radius: 50%;
+    border: .2rem solid white;
+}
+.mine  h4{
+    padding-top: 1rem;
+    background-color: white;
+    text-align: center;
+    font-size: .3rem;
+}
+.mine .clo{
+    background-color: white;
+    padding: .3rem 0;
+    font-size: .34rem;
+}
+.mine .clo img{
+    display: inline-block;
+    width: .3rem;
+    margin:0 .3rem;
+}
+.mine .center{
+    margin-top: .2rem;
+    background-color: white;
+}
+.mine .center h3{
+    font-size: .34rem;
+    padding:.3rem 0 .3rem 1rem;
+    color: #333333;
+    border-bottom: 1px solid #333333;
+}
+.mine .center h3 span{
+    color: #999999;
+    float: right;
+}
+.mine .center .icon{
+    display: flex;
+}
+.mine .center .icon .iconItem{
+    position: relative;
+    width: 1.6rem;
+    text-align: center;
+    padding: .4rem 0;
+}
+.mine .center .icon .iconItem img{
+    margin: .2rem auto;
+    width: .5rem;
+    height: .45rem;
+}
+.mine .center .icon .iconItem span{
+    position: absolute;
+    top: .4rem;
+    right: .25rem;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    width: .4rem;
+    height: .4rem;
+    font-size: .3rem;
+    text-align: center;
+    line-height: .4rem;
+}
+.mine .center .manage{
+    margin-top: .4rem;
+    padding: .3rem;
+    font-size: .3rem;
+    color: #666666;
+}
