@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './login.css'
+import Header from '../../components/Header'
 import {requestMemberLogin} from '../../utils/request'
 export default class Login extends Component {
     constructor() {
@@ -25,6 +26,7 @@ export default class Login extends Component {
                 sessionStorage.setItem('member',this.state.user.phone)
                 // console.log()
                 sessionStorage.setItem('uid',res.data.list.uid)
+                sessionStorage.setItem('user',res.data.list)
                 this.props.history.push('/index') 
             }
             else{
@@ -36,7 +38,8 @@ export default class Login extends Component {
         const { user } = this.state
         return (
             <div className='login'>
-                <header>登录<span>注册</span></header>
+                <Header reg title='登录'></Header>
+                {/* <header>登录<span>注册</span></header> */}
                 <div className="main">
                 <div className='input1'>
                   账号:<input type="text" value={user.phone} onChange={(e) => this.changeUser(e, 'phone')} />

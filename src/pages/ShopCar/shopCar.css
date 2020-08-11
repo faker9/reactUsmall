@@ -1,15 +1,22 @@
 .cars{
     padding-bottom: 1.9rem;
+    margin-top: .9rem;
+    scrollbar-width: 0;
+}
+.cars .sco{
+    scrollbar-width: 0;
 }
 .car{
     overflow: hidden;
+    
 }
 .remove{
-    transform: translate(-15%)
+    transform: translate(-15%);
+    transition: all .3s;
 }
 .car .con{
     display: flex;
-
+    transition: all .3s;
     width: 120%;
     height: 2rem;
 }
@@ -43,7 +50,7 @@
 }
 .car .addsub{
     margin: .4rem 0 .1rem 0;
-    flex: 1;
+    width: 2.3rem;
 }
 .car .addsub button{
     border: .01rem solid #999;
@@ -52,8 +59,6 @@
 }
 .car .imgce{
     width: .6rem;
-    /* height: .4rem; */
-
     padding: 0 .2rem;
     background-color: #FAFAFA;
     line-height: 1rem;
@@ -64,7 +69,6 @@
     width: .4rem;
     height: .4rem;
     padding: 0 .2rem;
-    /* margin-left: .4rem; */
     background-color: #FAFAFA;
     line-height: 1rem;
 }
@@ -74,7 +78,6 @@
     
 }
 .car .del{
-    /* flex: 1; */
     margin-left: .5rem;
     background-color: orange;
     color: white;
@@ -106,7 +109,7 @@
 }
 .tettle .count{
     margin-left: .2rem;
-   padding-top: .3rem;
+   padding-top: .25rem;
    flex: 1;
 }
 .tettle .count p{
@@ -118,7 +121,7 @@
     line-height: 1rem;
     background-color: orange;
     color:white;
-    margin-left: .4rem;
+    margin-left: .1rem;
 }
 .empty img{
     padding-top: 2rem;

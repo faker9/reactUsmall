@@ -1,16 +1,18 @@
 .gooddes{
     font-size: .35rem;
+    margin-top: .9rem;
+    padding-bottom: .9rem;
 }
 
 .gooddes img{
     width: 100%;
-    height: 5.5rem;
+    /* height: 7.5rem; */
 }
 .gooddes .head{
     background-color: white;
-    padding-left: .3rem;
+    padding:.2rem 0 .5rem .3rem;
     height: 1rem;
-    padding-bottom: .5rem;
+    /* padding-bottom: .5rem; */
     font-size: .4rem;
     display: flex;
     justify-content: space-around;
@@ -22,7 +24,6 @@
     flex: 1;
 }
 .gooddes .head .selec{
-    
     width: 1rem;
     text-align: center;
     border-left: 1px solid #999;
@@ -33,6 +34,7 @@
     align-items: center;
     line-height: .5rem;
     padding-top: .15rem;
+    margin-right: .4rem;
 }
 .gooddes .head img{
     width: .4rem;
@@ -42,21 +44,26 @@
     background-color: white;
     padding-left: .3rem;
     color: red;
+    font-size: .3rem;
 }
 .gooddes span{
     color: orange;
-    margin-left: .5rem;
+    margin-left: .6rem;
     border: 1px solid orange;
-    font-size: .35rem;
-    padding: .05rem;
+    font-size: .3rem;
+    padding: .05rem .1rem;
+}
+.gooddes span:last-of-type{
+    margin-left:.2rem
 }
 .gooddes .beforePrice{
     background-color: white;
-    padding-left: .3rem;
+    padding: .2rem;
+    font-size: .3rem;
     text-decoration: line-through;
     color: gray;
-    padding-bottom: .3rem;
-    margin-bottom: .5rem;
+   
+    margin: 0 0 .5rem 0;
 }
 
 
@@ -90,7 +97,7 @@
     padding: .3rem 0 0 .2rem;
     position: fixed;
     width: 100%;
-    height: 5rem;
+    height: 6rem;
     left: 0;
     bottom: 0;
     background-color: white;
@@ -114,10 +121,22 @@
     margin-top: .2rem;
 }
 .gooddes .block .prop h3{
-    margin-bottom: .2rem;
+    margin: .5rem 0;
 }
 .gooddes .block .prop .am-tag {
-   margin-right: .1rem;
+   margin-right: .2rem;
+   padding: 0;
+   width: 1.4rem;
+   height: .6rem;
+   font-size: .4rem;
+}
+
+.gooddes .block .prop .am-tag-text{
+    margin: auto;
+    line-height: .6rem;
+    text-align: center;
+    width: 1rem;
+    font-size: .35rem;
 }
 .gooddes .block button{
     background: orange;
@@ -126,5 +145,5 @@
     height: 1rem;
     font-size: .4rem;
     display: block;
-    margin: .3rem auto;
+    margin: .5rem auto;
 }

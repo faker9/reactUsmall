@@ -146,6 +146,9 @@ export const changeNum = () => {
 // 请求数据==================================================
 export const requestBannerAction = () => {
     return (dispatch, getState) => {
+        if(getState().banner.length>0){
+            return
+        }
         requestBanner().then(res => {
             dispatch(changeBanner(res.data.list))
         })
@@ -154,6 +157,9 @@ export const requestBannerAction = () => {
 //首页商品
 export const requestGoodsAction = () => {
     return (dispatch, getState) => {
+        if(getState().goods.length>0){
+            return
+        }
         requestGoods().then(res => {
             dispatch(changeGoods(res.data.list[0].content))
         })
@@ -162,6 +168,9 @@ export const requestGoodsAction = () => {
 //详情
 export const requestGoodDetailAction = (id) => {
     return (dispatch, getState) => {
+        if(parseInt(id.id) === getState().goodDetail.id){
+            return
+        }
         requestCateInfo(id).then(res => {
             dispatch(changeGoodDetail(res.data.list[0]))
         })
@@ -170,6 +179,9 @@ export const requestGoodDetailAction = (id) => {
 //catetree
 export const requestCateTreeAction = (id) => {
     return (dispatch, getState) => {
+        if(getState().cateTree.length>0){
+            return
+        }
         requestCateTree().then(res => {
             dispatch(changeCateTree(res.data.list))
         })
@@ -178,7 +190,11 @@ export const requestCateTreeAction = (id) => {
 //cateDetail
 export const requestCateGoodsAction = (id) => {
     return (dispatch, getState) => {
-        requestCateGoods(id).then(res => {
+        
+        /* if(parseInt(id.fid)===getState().cateDetails){
+            return 两者ID不一致
+        }  */
+        requestCateGoods(id).then(res => {            
             dispatch(changecateDetail(res.data.list))
         })
     }

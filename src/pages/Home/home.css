@@ -1,15 +1,15 @@
-.home header{
+.home .header{
     height: 1rem;
     background-color: white;
 }
-.home header img{
+.home .header img{
     display: inline-block;
     margin-top: .2rem;
     width: 2.4rem;
     margin-left: .2rem;
 }
 
-.home header input{
+.home .header input{
     border: none;
     font-size: 0.3rem;
     width: 2rem;

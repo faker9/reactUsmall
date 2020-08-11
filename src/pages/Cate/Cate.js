@@ -16,9 +16,9 @@ class Cate extends Component {
     }
     componentDidMount(){
         this.props.requestcateTree()
-        if(this.props.cateTree.length>0){
+       /*  if(this.props.cateTree.length>0){
             console.log(this.props.cateTree)
-        }
+        } */
     }
     sel(index,item){
         this.setState({
@@ -28,7 +28,7 @@ class Cate extends Component {
     }
     render() {
         const {cateTree} = this.props
-       console.log('catetree',cateTree)
+    
         return (
             <div>
                 <Header title='商品分类'></Header>

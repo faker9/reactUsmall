@@ -15,9 +15,9 @@ import { bannerList, requestBannerAction, goodsList, requestGoodsAction } from '
         // const {goods} = this.props
         return (
             <div className='home'>
-               <header>
+               <div className='header'>
                    <img src={logo} alt=""/> <input type="text" placeholder='寻找商品'/>             
-               </header>
+               </div>
                <Banner {...this.props}></Banner>
                 <Rush ></Rush>
                 <Goods {...this.props}></Goods>

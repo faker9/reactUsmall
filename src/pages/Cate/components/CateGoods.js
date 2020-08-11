@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom'
 function CateGoods(props) {
     const { info } = props
     const toCateDetail = (id) => {
-
-        console.log(props.history.push('/cateDetail?fid=' + id))
+        props.history.push('/cateDetail?fid=' + id)
+        // console.log()
     }
     return (
         <div className='goodtatol'>

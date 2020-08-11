@@ -1,5 +1,6 @@
 .cate{
     display: flex;
+    margin-top: .9rem;
 }
 .cate ul{
     width: 2rem;

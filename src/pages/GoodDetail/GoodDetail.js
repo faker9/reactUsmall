@@ -7,6 +7,7 @@ import { requestGoodDetailAction, goodDetails } from '../../store'
 import { requestShopAdd } from '../../utils/request'
 import QueryString from 'qs'
 import cart from '../../assets/img/img/cart.png'
+import {priceFilter} from '../../filters/index'
 import { Tag } from 'antd-mobile'
 class GoodDetail extends Component {
     state = {
@@ -80,7 +81,6 @@ class GoodDetail extends Component {
     render() {
         const { goodDetails } = this.props
         const { isDoor } = this.state
-        console.log('goodDetail', goodDetails)
         // console.log(typeof JSON.parse(goodDetails.specsattr))
         return (<div>
             <div >
@@ -94,8 +94,8 @@ class GoodDetail extends Component {
                              收藏
                          </div>
                     </div>
-                    <p className='price'>Y78 {goodDetails.ishot ? <span>热卖</span> : null} {goodDetails.isnew ? <span>新品</span> : null}</p>
-                    <p className='beforePrice'>$199</p>
+        <p className='price'>￥{goodDetails.price?priceFilter(goodDetails.price):null} {goodDetails.ishot ? <span>热卖</span> : null} {goodDetails.isnew ? <span>新品</span> : null}</p>
+                    <p className='beforePrice'>￥{goodDetails.price?priceFilter(goodDetails.market_price):null}</p>
                     <div dangerouslySetInnerHTML={{ __html: goodDetails.description }}></div>
                     <footer><span onClick={() => this.clickAdd()}>加入购物车</span></footer>
 

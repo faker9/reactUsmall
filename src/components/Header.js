@@ -5,11 +5,11 @@ import { withRouter } from 'react-router-dom'
  function Header(props) {
    var goback=()=>{
     props.history.goBack()
-      console.log(props.history)
     }
     return (
         <div>
-            <header>{props.isShow?<span onClick={()=>goback()}>返回</span>:null}{props.title}</header>
+            <header>{props.isShow?<span onClick={()=>goback()}>返回</span>:null}
+            {props.title} {props.reg?<div className='regs'>注册</div>:null}</header>
         </div>
     )
 }

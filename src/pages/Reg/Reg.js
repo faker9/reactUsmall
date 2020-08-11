@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './reg.css'
+import Header from'../../components/Header'
 import {requestMemberReg} from '../../utils/request'
 export default class Reg extends Component {
     constructor() {
@@ -34,7 +35,8 @@ export default class Reg extends Component {
         const { user } = this.state
         return (
             <div className='reg'>
-                <header>注册<span >返回</span></header>
+                <Header isShow title='注册'></Header>
+                {/* <header>注册<span >返回</span></header> */}
                 <div className="main">
                     <div className='input'>
                         手机号:<input type="text" value={user.phone} onChange={(e) => this.changeUser(e, 'phone')} />

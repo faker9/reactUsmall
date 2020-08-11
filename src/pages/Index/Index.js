@@ -17,19 +17,40 @@ export default class index extends Component {
     constructor(){
         super()
         this.state={
-            icon:[home1,cate1,shopCar1,mine1],
-            icon2:[home2,cate2,shopCar2,mine2],
+            arr:[
+                {
+                    text:'首页',
+                    unsel:home1,
+                    sel:home2,
+                    path:'/index/home'
+                },
+                {
+                    text:'分类',
+                    unsel:cate1,
+                    sel:cate2,
+                    path:'/index/cate'
+                },
+                {
+                    text:'购物车',
+                    unsel:shopCar1,
+                    sel:shopCar2,
+                    path:'/index/shopCar'
+                },
+                {
+                    text:'我的',
+                    unsel:mine1,
+                    sel:mine2,
+                    path:'/index/mine'
+                },
+            ],
+        
         }
     }
-    change(index){
-       /*  this.state.icon=[home1,cate1,shopCar1,mine1]
-        this.state.icon[index]= this.state.icon2[index]
-        this.setState({ 
-           ...this.state
-        }) */
-    }
+   
     render() {
-        const {icon}= this.state
+        const {arr}= this.state
+        const path =this.props.location.pathname
+
         return (
             <div className='index'>
                 <Switch>
@@ -42,10 +63,11 @@ export default class index extends Component {
 
                 
                 <footer>
-                    <NavLink to='/index/home' activeClassName = 'select'><div onClick={(e)=>this.change(0,e)}><img src={icon[0]}  alt=""/> 首页</div></NavLink>
-                    <NavLink to='/index/cate'  activeClassName = 'select'><div onClick={(e)=>this.change(1,e)}><img src={icon[1]}   alt=""/>分类</div></NavLink>
-                    <NavLink to='/index/shopCar'  activeClassName = 'select'><div onClick={(e)=>this.change(2,e)}><img src={icon[2]}  alt=""/>购物车</div></NavLink>
-                    <NavLink to='/index/mine'  activeClassName = 'select'><div onClick={(e)=>this.change(3,e)}><img src={icon[3]}  alt=""/>我的</div></NavLink>
+                    {arr.map(item=>{
+                        return (<NavLink key={item.path} to={item.path} activeClassName = 'select'>
+                            <div ><img src={item.path===path?item.sel:item.unsel}  alt=""/>{ item.text}</div></NavLink>)
+                    })}
+                   
                 </footer>
             </div>
         )
