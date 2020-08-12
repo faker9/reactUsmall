@@ -1,8 +1,20 @@
-import { createStore, applyMiddleware } from 'redux'
-import { requestBanner, requestGoods, requestCateInfo, requestCateTree, requestCateGoods, requestShopInfo, requestShopDel, requestShopEdit } from '../utils/request'
+import { createStore, applyMiddleware,combineReducers } from 'redux'
+// import { requestBanner, requestGoods, requestShopAdd,requestCateInfo, requestCateTree, requestCateGoods, requestShopInfo, requestShopDel, requestShopEdit } from '../utils/request'
 import thunk from 'redux-thunk'
-import { Toast } from 'antd-mobile'
-const initState = {
+// import { Toast } from 'antd-mobile'
+import shop from './modules/shop'
+import cate from './modules/cate'
+import user from './modules/user'
+import home from './modules/home'
+import detail from './modules/detail'
+const reducer = combineReducers({
+    shop,
+    cate,
+    user,
+    home,
+    detail
+})
+/* const initState = {
     banner: [],
     goods: [],
     goodDetail: {},
@@ -10,7 +22,9 @@ const initState = {
     cateDetails: [],//分类详情
     shopList: [],//购物车列表
     isSelectAll: false,//全选
-    isEdit: false//编辑
+    isEdit: false,//编辑
+    user:sessionStorage.getItem('user')?sessionStorage.getItem('user'):null,
+    isDoor:false,
 }
 //修改数据
 const reducer = (state = initState, action) => {
@@ -69,15 +83,8 @@ const reducer = (state = initState, action) => {
                 isEdit: !state.isEdit,
                 
             }
-        case 'changeNum':
-            let arr = []
-            arr.forEach((item,index)=>{
-                item= state.shopList[index].checked
-            })
-            return {
-                ...state,
-                shopList:arr
-            }
+
+        
         default:
             return state
     }
@@ -136,11 +143,7 @@ export const changeIsEdit = () => {
         type: 'changeIsEdit'
     }
 }
-export const changeNum = () => {
-    return {
-        type: 'changeNum',
-    }
-}
+
 
 
 // 请求数据==================================================
@@ -190,43 +193,36 @@ export const requestCateTreeAction = (id) => {
 //cateDetail
 export const requestCateGoodsAction = (id) => {
     return (dispatch, getState) => {
-        
-        /* if(parseInt(id.fid)===getState().cateDetails){
-            return 两者ID不一致
-        }  */
         requestCateGoods(id).then(res => {            
             dispatch(changecateDetail(res.data.list))
         })
     }
 }
-//cateList
+//shopList
 export const requestShopListAction = (id) => {
     return (dispatch, getState) => {
         requestShopInfo(id).then(res => {
+            //防止刷新
             let oldlist = getState().shopList;
-            const list = res.data.list ? res.data.list : []
-            
+            const list = res.data.list ? res.data.list : []          
             list.forEach((item,index) => {
                 if (oldlist.length>index){
                     item.checked = oldlist[index].checked;
                 }else{
                     item.checked = false;
-                }
-                
+                }               
             })
             dispatch(changeShopList(list))
         })
     }
 }
-//cateDel
+//shopDel
 export const requestShopDelAction = (id) => {
     return (dispatch, getState) => {
         requestShopDel({ id: id }).then(res => {
             if (res.data.code === 200) {
                 Toast.success('删除成功', 2);
             }
-
-
         })
     }
 }
@@ -251,6 +247,6 @@ export const cateDetails = (state) => state.cateDetails
 export const shopList = (state) => state.shopList
 export const isSelectAll = state => state.isSelectAll
 export const isEdit = state => state.isEdit
-
+ */
 const store = createStore(reducer, applyMiddleware(thunk))
 export default store

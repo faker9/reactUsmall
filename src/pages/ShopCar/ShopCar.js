@@ -9,9 +9,10 @@ import editer from '../../assets/img/editor_hig.png'
 import sel from '../../assets/img/radio_nor.png'
 import select from '../../assets/img/radio_hig.png'
 import emptycar from '../../assets/img/tab_shopping_nor.png'
-import { requestShopListAction, shopList, isSelectAll, changeIsSelectAll, changeCheckedOne, changeIsEdit, isEdit, requestShopDelAction, requestShopEditAddAction } from '../../store'
+import { requestShopListAction, shopList, isSelectAll, changeIsSelectAll, changeCheckedOne, changeIsEdit, isEdit, requestShopDelAction, requestShopEditAddAction } from '../../store/modules/shop'
 import { connect } from 'react-redux'
 import { requestShopEdit } from '../../utils/request'
+import {successAlert} from '../../utils/alert'
 class ShopCar extends Component {
     constructor() {
         super()
@@ -36,6 +37,7 @@ class ShopCar extends Component {
     // 购物车数量减一
     sub(id, num) {
         if (num < 2) {
+            successAlert('宝贝不能再减了')
             return
         }
         let params = {
@@ -58,7 +60,7 @@ class ShopCar extends Component {
     //加载完成
     componentDidMount() {
         this.requestList()
-        /*  this.setState({
+       /*   this.setState({
              arr: this.props.shopList.map((item) => {
                  return false
              })

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import { requestCateGoods } from '../../utils/request'
 import QueryString from 'qs'
 import Header from '../../components/Header'
-import { cateDetails, requestCateGoodsAction} from '../../store'
+import { cateDetails, requestCateGoodsAction} from '../../store/modules/cate'
 import { connect } from 'react-redux'
 import {priceFilter} from '../../filters'
 import './catedetail.css'
@@ -10,6 +10,7 @@ class CateDetail extends Component {
     componentDidMount() {
         const id = QueryString.parse(this.props.location.search.slice(1))
         this.props.requestCateDetail(id)
+
     }
     toDetail(id){
         this.props.history.push('/goodDetail?id='+id)

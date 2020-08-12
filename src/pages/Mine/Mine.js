@@ -11,13 +11,14 @@ export default class Mine extends Component {
         return (
             <div className='mine'>
                 <div className='header'>
+              
                     <img className='img' src={set} alt=""/>
                      个人中心
                     <img className='img' src={news} alt=""/>
                     <span>9+</span>
                     <img src={user} alt="" className='user'/>
                 </div>
-                <h4>{sessionStorage.getItem('member')}</h4>
+                <h4>{sessionStorage.getItem('nackname')}</h4>
                 <p  className='clo'><img src={colc} alt=""/> 我的收藏(5)</p>
                 <div className="center">
                     <h3>我的订单<span>查看订单</span></h3>

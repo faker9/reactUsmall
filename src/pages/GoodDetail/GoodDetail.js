@@ -3,23 +3,21 @@ import Header from '../../components/Header'
 import './goodDetail.css'
 import { connect } from 'react-redux'
 import { Toast } from 'antd-mobile'
-import { requestGoodDetailAction, goodDetails } from '../../store'
+// import { requestGoodDetailAction, goodDetails } from '../../store'
+import { requestGoodDetailAction, goodDetails } from '../../store/modules/detail'
 import { requestShopAdd } from '../../utils/request'
 import QueryString from 'qs'
 import cart from '../../assets/img/img/cart.png'
-import {priceFilter} from '../../filters/index'
+import { priceFilter } from '../../filters/index'
 import { Tag } from 'antd-mobile'
 class GoodDetail extends Component {
-    state = {
-        isShow: true,
-        title: '商品详情',
+    state = { 
         isDoor: false,
-        arr: []
+        arr:[]
     }
     componentDidMount() {
         const id = QueryString.parse(this.props.location.search.slice(1))
         this.props.requestDetails(id)
-
     }
     cancel() {
         this.setState({
@@ -40,12 +38,11 @@ class GoodDetail extends Component {
             goodsid: QueryString.parse(this.props.location.search.slice(1)).id,
             num: 1
         }
-       
         requestShopAdd(params).then(res => {
-            if(res.data.code===200){
-                 Toast.success('成功加入购物车 !!!', 1);
+            if (res.data.code === 200) {
+                Toast.success('成功加入购物车 !!!', 1);
             }
-           
+
             this.cancel()
         })
     }
@@ -81,10 +78,9 @@ class GoodDetail extends Component {
     render() {
         const { goodDetails } = this.props
         const { isDoor } = this.state
-        // console.log(typeof JSON.parse(goodDetails.specsattr))
         return (<div>
             <div >
-                <Header {...this.state}></Header>
+                <Header isShow title='商品详情'></Header>
                 <div className="gooddes">
                     <img src={goodDetails.img} alt="" />
                     <div className="head">
@@ -94,8 +90,8 @@ class GoodDetail extends Component {
                              收藏
                          </div>
                     </div>
-        <p className='price'>￥{goodDetails.price?priceFilter(goodDetails.price):null} {goodDetails.ishot ? <span>热卖</span> : null} {goodDetails.isnew ? <span>新品</span> : null}</p>
-                    <p className='beforePrice'>￥{goodDetails.price?priceFilter(goodDetails.market_price):null}</p>
+                    <p className='price'>￥{goodDetails.price ? priceFilter(goodDetails.price) : null} {goodDetails.ishot ? <span>热卖</span> : null} {goodDetails.isnew ? <span>新品</span> : null}</p>
+                    <p className='beforePrice'>￥{goodDetails.price ? priceFilter(goodDetails.market_price) : null}</p>
                     <div dangerouslySetInnerHTML={{ __html: goodDetails.description }}></div>
                     <footer><span onClick={() => this.clickAdd()}>加入购物车</span></footer>
 

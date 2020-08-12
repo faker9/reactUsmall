@@ -1,7 +1,9 @@
 .gooddes{
+    position: relative;
     font-size: .35rem;
     margin-top: .9rem;
     padding-bottom: .9rem;
+    height: 100%;
 }
 
 .gooddes img{
@@ -89,7 +91,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 160%;
+    height: 100%;
     width: 100vw;
     background: rgba(0,0,0,0.5);
 }

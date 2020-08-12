@@ -1,31 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Carousel} from 'antd-mobile'
 // import {requestBanner} from '../../../utils/request'
 import 'antd-mobile/dist/antd-mobile.css';
 import './banner.css'
-export default class banner extends Component {
-    state = {
-        arr :[]
-    }
- /*    componentDidMount(){
-        requestBanner().then(res=>{
-            this.setState({
-                arr:res.data.list
-            })
-        })
-    } */
-    render() {
-        const {banner} = this.props
+export default function banner(props){
+        const {banner} = props
         return (  
             <div className='banner'> 
              <Carousel>
                 {banner.map(item=>{
-                    return <img  key={item.id} src={item.img} alt=''/>
-                    
+                    return <img  key={item.id} src={item.img} alt=''/>                    
                 })}
              </Carousel>
-            </div>
-            
+            </div> 
         )
-    }
 }
+

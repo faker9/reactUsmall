@@ -5,7 +5,8 @@ import Banner from './components/Banner'
 import Rush from './components/Rush'
 import Goods from './components/Goods'
 import {connect} from 'react-redux'
-import { bannerList, requestBannerAction, goodsList, requestGoodsAction } from '../../store'
+// import Top from './components/Top'
+import { bannerList, requestBannerAction, goodsList, requestGoodsAction } from '../../store/modules/home'
  class Home extends Component {
      componentDidMount(){
         this.props.requestBanner()

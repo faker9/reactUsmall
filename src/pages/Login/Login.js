@@ -23,10 +23,9 @@ export default class Login extends Component {
     login(){
         requestMemberLogin(this.state.user).then(res=>{
             if(res.data.code=== 200){
-                sessionStorage.setItem('member',this.state.user.phone)
-                // console.log()
+                sessionStorage.setItem('nackname',res.data.list.nickname)
                 sessionStorage.setItem('uid',res.data.list.uid)
-                sessionStorage.setItem('user',res.data.list)
+                sessionStorage.setItem('user',JSON.stringify(res.data.list))
                 this.props.history.push('/index') 
             }
             else{
@@ -39,7 +38,6 @@ export default class Login extends Component {
         return (
             <div className='login'>
                 <Header reg title='登录'></Header>
-                {/* <header>登录<span>注册</span></header> */}
                 <div className="main">
                 <div className='input1'>
                   账号:<input type="text" value={user.phone} onChange={(e) => this.changeUser(e, 'phone')} />
